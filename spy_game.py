@@ -1,4 +1,5 @@
 import random
+import os
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
@@ -125,8 +126,8 @@ def show_prepare_screen(query):
     query.edit_message_text(text=text, reply_markup=InlineKeyboardMarkup(keyboard))
 
 def main():
-    TOKEN = "7575793639:AAEsWHaj2YcHyhGvSL7Gu26SbWiBahldf50"
-    
+    TOKEN = os.environ.get("BOT_TOKEN")
+
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
 
